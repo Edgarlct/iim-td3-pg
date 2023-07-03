@@ -1,11 +1,11 @@
 # IIM TD3 - Scrap Le Denicheur
 
-[![Last version](https://img.shields.io/packagist/v/edgarlct/iim-td3?maxAge=3600)](https://packagist.org/packages/edgarlct/iim-td3)
+[![Last version](https://img.shields.io/packagist/v/edgarlct/td-3?maxAge=3600)](https://packagist.org/packages/edgarlct/td-3)
 
 ## Installation
 
 ```bash
-composer require edgarlct/iim-td2
+composer require edgarlct/td-3
 ```
 
 ## Local development
@@ -14,14 +14,39 @@ composer require edgarlct/iim-td2
 composer install
 ```
 
+Check code quality:
 ```bash
- php vendor/bin/phpstan analyse src --level=max
+ composer check
 ```
 
+Fix code quality:
 ```bash
-php vendor/bin/php-cs-fixer fix src --rules=@PSR12
+ composer fix
 ```
 
+Run tests:
 ```bash
-php vendor/bin/phpunit tests
+composer test
+```
+
+## Usage
+
+This library is used to scrap the website [Le Denicheur](https://ledenicheur.fr/).
+In this release, you can search all products by search string and the library will return a list of products entities.
+You can get the price, the ranking and the link of the product.
+```php
+<?php
+
+use Iim\td3\Api;
+
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$api = new Api();
+try {
+    $products = $api->getProductResearch("iphone");
+
+} catch (Throwable $e) {
+    echo $e->getMessage();
+}
 ```
