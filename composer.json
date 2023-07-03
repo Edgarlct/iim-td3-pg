@@ -1,0 +1,32 @@
+{
+    "name": "edgarlct/td-3",
+    "type": "library",
+    "license": "MIT",
+    "scripts": {
+        "check": "php vendor/bin/phpstan analyse src --level=max",
+        "fix": "php vendor/bin/php-cs-fixer fix src --rules=@PSR12",
+        "test": "php vendor/bin/phpunit tests"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iim\\td3\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Edgarlct",
+            "email": "edgar.lecomte@icloud.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "symfony/http-client": "^6.3",
+        "symfony/dom-crawler": "^6.3",
+        "symfony/css-selector": "^6.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.2",
+        "friendsofphp/php-cs-fixer": "^3.20",
+        "phpstan/phpstan": "^1.10"
+    }
+}
